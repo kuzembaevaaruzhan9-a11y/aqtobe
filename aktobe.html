@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ақтөбе қаласы</title>
+<style>
+  :root{
+    --blue:#2f9bff; --blue-d:#1470d6; --sky:#e8f4ff; --sky2:#cfe9ff; --text:#17324d; --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Roboto,Arial,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;
+    padding:16px 6%;transition:.4s;background:transparent}
+  nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(47,155,255,.15);padding:10px 6%}
+  .logo{font-weight:800;font-size:22px;color:var(--white);transition:.4s}
+  nav.scrolled .logo{color:var(--blue-d)}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav a{text-decoration:none;color:var(--white);font-weight:500;position:relative;transition:.3s}
+  nav.scrolled a{color:var(--text)}
+  nav ul a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--blue);transition:.3s}
+  nav ul a:hover::after{width:100%}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 6%;
+    background:linear-gradient(135deg,#4db3ff,#2f9bff 45%,#8fd0ff);background-size:200% 200%;animation:grad 10s ease infinite;
+    position:relative;overflow:hidden;color:var(--white)}
+  @keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.18);animation:float 8s ease-in-out infinite}
+  .b1{width:220px;height:220px;top:12%;left:8%}
+  .b2{width:140px;height:140px;bottom:15%;right:12%;animation-delay:2s}
+  .b3{width:90px;height:90px;top:25%;right:25%;animation-delay:4s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+  .hero-content{position:relative;z-index:2;max-width:800px;animation:fadeUp 1.2s ease both}
+  .hero h1{font-size:clamp(38px,7vw,76px);font-weight:800;margin-bottom:16px}
+  .hero p{font-size:clamp(16px,2.2vw,22px);opacity:.95;margin-bottom:32px}
+  .btn{display:inline-block;padding:14px 34px;border-radius:50px;background:var(--white);color:var(--blue-d);text-decoration:none;
+    font-weight:700;transition:.3s;box-shadow:0 8px 25px rgba(0,60,130,.25)}
+  .btn:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 14px 30px rgba(0,60,130,.35)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+
+  /* SECTIONS */
+  section{padding:90px 6%}
+  .title{text-align:center;font-size:clamp(28px,4vw,42px);color:var(--blue-d);margin-bottom:12px;font-weight:800}
+  .sub{text-align:center;max-width:650px;margin:0 auto 50px;color:#4a6580}
+  .alt{background:var(--sky)}
+
+  .reveal{opacity:0;transform:translateY(50px);transition:all .9s ease}
+  .reveal.show{opacity:1;transform:none}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+  .stat{background:var(--white);border-radius:20px;padding:34px 20px;text-align:center;box-shadow:0 8px 30px rgba(47,155,255,.15);transition:.4s}
+  .stat:hover{transform:translateY(-8px)}
+  .stat b{display:block;font-size:42px;color:var(--blue);font-weight:800}
+  .stat span{color:#4a6580}
+
+  /* CARDS */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;max-width:1100px;margin:0 auto}
+  .card{background:var(--white);border-radius:20px;padding:32px 26px;box-shadow:0 8px 30px rgba(47,155,255,.14);transition:.4s;border:2px solid transparent}
+  .card:hover{transform:translateY(-10px);border-color:var(--blue);box-shadow:0 18px 40px rgba(47,155,255,.28)}
+  .icon{font-size:42px;margin-bottom:14px;display:inline-block;transition:.4s}
+  .card:hover .icon{transform:scale(1.2) rotate(-6deg)}
+  .card h3{color:var(--blue-d);margin-bottom:8px}
+
+  /* ABOUT */
+  .about{max-width:900px;margin:0 auto;font-size:18px;text-align:center}
+
+  /* TIMELINE */
+  .timeline{max-width:700px;margin:0 auto;border-left:3px solid var(--blue);padding-left:30px}
+  .tl{position:relative;margin-bottom:34px}
+  .tl::before{content:'';position:absolute;left:-41px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 6px var(--sky2)}
+  .tl b{color:var(--blue-d);font-size:20px}
+
+  /* FOOTER */
+  footer{background:linear-gradient(135deg,var(--blue-d),var(--blue));color:var(--white);text-align:center;padding:40px 6%}
+
+  @media(max-width:700px){nav ul{display:none}section{padding:70px 6%}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">Ақтөбе</div>
+  <ul>
+    <li><a href="#about">Қала туралы</a></li>
+    <li><a href="#facts">Мәліметтер</a></li>
+    <li><a href="#places">Көрікті жерлер</a></li>
+    <li><a href="#history">Тарих</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div>
+  <div class="hero-content">
+    <h1>Ақтөбе қаласы</h1>
+    <p>Батыс Қазақстанның заманауи, динамикалық дамып келе жатқан орталығы</p>
+    <a href="#about" class="btn">Көбірек білу</a>
+  </div>
+</header>
+
+<section id="about">
+  <h2 class="title reveal">Қала туралы</h2>
+  <p class="sub reveal">Ақтөбе — Қазақстанның батысында орналасқан ірі мегаполистердің бірі.</p>
+  <p class="about reveal">Қала Ілек өзенінің жағасында орналасқан және Ақтөбе облысының әкімшілік орталығы болып табылады. Бүгінде Ақтөбе — өнеркәсіп, мәдениет, білім және көлік торабы ретінде танымал, ал қала тұрғындары қонақжайлығымен ерекшеленеді.</p>
+</section>
+
+<section id="facts" class="alt">
+  <h2 class="title reveal">Қысқаша мәліметтер</h2>
+  <p class="sub reveal">Қала туралы негізгі көрсеткіштер</p>
+  <div class="stats">
+    <div class="stat reveal"><b>1869</b><span>Негізі қаланған жыл</span></div>
+    <div class="stat reveal"><b>500 мың+</b><span>Халық саны</span></div>
+    <div class="stat reveal"><b>Ілек</b><span>Қала орналасқан өзен</span></div>
+    <div class="stat reveal"><b>Батыс</b><span>Қазақстан аймағы</span></div>
+  </div>
+</section>
+
+<section id="places">
+  <h2 class="title reveal">Қала ерекшеліктері</h2>
+  <p class="sub reveal">Ақтөбені ерекше ететін бағыттар</p>
+  <div class="cards">
+    <div class="card reveal"><div class="icon">🕌</div><h3>Мәдениет пен сәулет</h3><p>Қалада заманауи ғимараттар, мәдени орындар, театрлар мен мұражайлар бар.</p></div>
+    <div class="card reveal"><div class="icon">🏭</div><h3>Өнеркәсіп</h3><p>Мұнай-газ, металлургия және машина жасау салалары қаланың экономикасының негізі.</p></div>
+    <div class="card reveal"><div class="icon">🎓</div><h3>Білім және ғылым</h3><p>Университеттер мен колледждер жастарға сапалы білім береді.</p></div>
+    <div class="card reveal"><div class="icon">🌳</div><h3>Саябақтар</h3><p>Көгалдандырылған аландар мен демалыс аймақтары қала тұрғындарына қолайлы орта жасайды.</p></div>
+    <div class="card reveal"><div class="icon">🚆</div><h3>Көлік торабы</h3><p>Темір жол, автожол және әуежай арқылы Ақтөбе маңызды көлік байланысын қамтамасыз етеді.</p></div>
+    <div class="card reveal"><div class="icon">🤝</div><h3>Қонақжайлылық</h3><p>Қала қонақтарды жылы қарсы алып, қазақ халқының дәстүрін сақтайды.</p></div>
+  </div>
+</section>
+
+<section id="history" class="alt">
+  <h2 class="title reveal">Қысқаша тарих</h2>
+  <p class="sub reveal">Қаланың қалыптасу жолы</p>
+  <div class="timeline">
+    <div class="tl reveal"><b>1869 жыл</b><p>Ақтөбе бекінісі негізі қаланды.</p></div>
+    <div class="tl reveal"><b>XX ғасыр</b><p>Қала өнеркәсіптік және көліктік орталыққа айналды.</p></div>
+    <div class="tl reveal"><b>Тәуелсіздік кезеңі</b><p>Қала қарқынды дамып, жаңа ғимараттармен және инфрақұрылыммен кеңейді.</p></div>
+    <div class="tl reveal"><b>Бүгін</b><p>Ақтөбе — Қазақстанның ірі әрі заманауи қалаларының бірі.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Ақтөбе қаласы туралы ақпарат</p>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*0.1+'s';obs.observe(el)});
+</script>
+</body>
+</html>
